@@ -4,7 +4,7 @@ require 'watir'
 browser = Watir::Browser.new :chrome
 browser.goto 'https://www.facebook.com'
 browser.text_field(:id => 'email').set 'mk9990143266@gmail.com'
-browser.text_field(:id => 'pass').set 'Jai@hind1'
+browser.text_field(:id => 'pass').set 'password'
 browser.form(:id => 'login_form').submit
 browser.goto 'https://www.facebook.com/notifications'
 sleep 5
@@ -34,7 +34,7 @@ names.each do |name|
 	browser.send_keys :enter
 	sleep 2
 	element = browser.div(:class => "_1mf _1mj").span
-	script = "return arguments[0].innerHTML = 'testing beta'"
+	script = "return arguments[0].innerHTML = 'Your message'"
 	browser.execute_script(script, element)
 	browser.send_keys [:control, "a"]
 	browser.send_keys [:control, "x"]
