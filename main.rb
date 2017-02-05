@@ -1,10 +1,15 @@
-
 require 'watir'
 
 browser = Watir::Browser.new :chrome
 browser.goto 'https://www.facebook.com'
-browser.text_field(:id => 'email').set 'mk9990143266@gmail.com'
-browser.text_field(:id => 'pass').set 'password'
+
+print 'enter email :- '
+email = gets.chomp
+print 'enter password :- '
+password = gets.chomp
+
+browser.text_field(:id => 'email').set email
+browser.text_field(:id => 'pass').set password
 browser.form(:id => 'login_form').submit
 browser.goto 'https://www.facebook.com/notifications'
 sleep 5
