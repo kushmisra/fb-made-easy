@@ -3,7 +3,7 @@ require 'watir-webdriver'
 b = Watir::Browser.new:chrome
 b.goto 'https://www.facebook.com'
 b.text_field(id: 'email').set 'kushmisra2609@gmail.com'
-b.text_field(id: 'pass').set 'babita1008'
+b.text_field(id: 'pass').set 'your password'
 b.button(type: 'submit').when_present.click
 
 
