@@ -25,7 +25,7 @@ if names.size > 0
 		puts "message send to #{name}"
 	end
 end
-browser.goto (https://www.facebook.com)
+browser.goto ('https://www.facebook.com')
 e = nil
 until e 
 	print 'Want to exit y/n '
