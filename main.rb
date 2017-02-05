@@ -1,14 +1,42 @@
-require 'watir-webdriver'
+require 'watir'
 
-b = Watir::Browser.new:chrome
-b.goto 'https://www.facebook.com'
-b.text_field(id: 'email').set 'kushmisra2609@gmail.com'
-b.text_field(id: 'pass').set 'your password'
-b.button(type: 'submit').when_present.click
+browser = Watir::Browser.new :chrome
+browser.goto 'https://www.facebook.com'
+browser.text_field(:id => 'email').set 'mk9990143266@gmail.com'
+browser.text_field(:id => 'pass').set 'Jai@hind1'
+browser.form(:id => 'login_form').submit
+browser.goto 'https://www.facebook.com/notifications'
+sleep 5
+names = []
+browser.divs(:class => '_4l_v').each do |div|
+	temp_text = div.span.text
+	if temp_text.include? "was"
+		next
+	end
+	if temp_text.include? "birthday"
+		temp_text = temp_text.split(' ')
+		temp_text = "#{temp_text[0]} #{temp_text[1]}"
+		names << temp_text 
+	end
+end
+if names.size > 0
+	names.each do |name|
+		puts "message send to #{name}"
+	end
+end
+browser.goto ('https://www.facebook.com')
+e = nil
+until e 
+	print 'Want to exit y/n '
+	s = gets.chomp
+	if s == 'y' 
+		e =1
+	else
+		e = nill
+	end
+end
 
+# b.text_field(placeholder: 'Search').set 'mayank kumar'
+# sleep 2
+# b.send_keys :enter
 
-b.text_field(placeholder: 'Search').set 'mayank kumar'
-sleep 2
-b.send_keys :enter
-
-s = gets 
