@@ -16,7 +16,9 @@ sleep 10
 names = []
 browser.goto 'https://web.facebook.com/events/birthdays'
 browser.div(:id => 'events_birthday_view').div(:class => '_4-u2 _59ha _2fv9 _4-u8').ul(:class => '_3ng0').lis.each do |li|
-   li.div(:class => 'clearfix _3ng1').div(:class => '_3ng2 lfloat _ohe').textarea(:id => 'u_jsonp_5_a').set 'happy birthday :)'
+   li.textarea.set 'happy birthday :)'
+   
+   sleep 8
    browser.send_keys :enter
    sleep 8
    names <<li.div(:class => 'clearfix _3ng1').div(:class => '_3ng2 lfloat _ohe').a.text
