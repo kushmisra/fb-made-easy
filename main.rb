@@ -17,7 +17,6 @@ names = []
 browser.goto 'https://web.facebook.com/events/birthdays'
 browser.div(:id => 'events_birthday_view').div(:class => '_4-u2 _59ha _2fv9 _4-u8').ul(:class => '_3ng0').lis.each do |li|
    li.textarea.set 'happy birthday :)'
-   
    sleep 8
    browser.send_keys :enter
    sleep 8
@@ -30,23 +29,29 @@ if names.size > 0
 	end
 end
 
-# browser.goto ('https://www.facebook.com')
-# names.each do |name| 
-# # 100.times do
-# 	browser.text_field(:placeholder => 'Search').set "#{name}"
-# 	sleep 2
-# 	browser.send_keys :enter
-# 	sleep 2
-# 	element = browser.div(:class => "_1mf _1mj").span
-# 	message = ' na aisa bhi nahi hai...:) :P ..its because of the fests going on :)'
-# 	message = "arguments[0].innerHTML = '#{message}'"
-# 	script = "return #{message}"
-# 	browser.execute_script(script, element)
-# 	browser.send_keys [:control, "a"]
-# 	browser.send_keys [:control, "x"]
-# 	browser.send_keys [:control, "v"]
-# 	sleep 1
-# 	browser.send_keys :enter
-# 	browser.div(:class => 'mls titlebarButtonWrapper rfloat _ohf').a(:class => "_3olu _3olv close button").click	
-# end
+browser.goto ('https://www.facebook.com')
+names.each do |name| 
+# 100.times do
+	browser.text_field(:placeholder => 'Search').set "#{name}"
+	sleep 2
+	browser.send_keys :enter
+	sleep 2
+	element = browser.div(:class => "_1mf _1mj").span
+	message = 'happy bday :)'
+	message = "arguments[0].innerHTML = '#{message}'"
+	script = "return #{message}"
+	browser.execute_script(script, element)
+	browser.send_keys [:control, "a"]
+	browser.send_keys [:control, "x"]
+	browser.send_keys [:control, "v"]
+	sleep 2
+	browser.send_keys :enter
+	browser.div(:class => 'fbNubFlyout fbDockChatTabFlyout uiContextualLayerParent').div(:class => 'fbNubFlyoutFooter').a(:class => '_6gb _6gf').click
+	sleep 2
+	browser.label(:class => '_55r1 _58ak _3ct8').text_field(:class => '_58al').set 'Celebrating'
+	sleep 3
+	browser.table(:class => 'uiGrid _51mz _5f0n')[1][0].click
+	sleep 2
+	browser.div(:class => 'mls titlebarButtonWrapper rfloat _ohf').a(:class => "_3olu _3olv close button").click	
+end
 s = gets
