@@ -1,12 +1,13 @@
+
 require 'watir'
+require 'highline/import'
 
 browser = Watir::Browser.new :chrome
 browser.goto 'https://www.facebook.com'
 
 print 'enter email :- '
 email = gets.chomp
-print 'enter password :- '
-password = gets.chomp
+password = ask("Enter password: ") { |q| q.echo = false }
 
 browser.text_field(:id => 'email').set email
 browser.text_field(:id => 'pass').set password
@@ -34,12 +35,15 @@ end
 
 browser.goto ('https://www.facebook.com')
 names.each do |name| 
-	browser.text_field(:placeholder => 'Search').set "#{name}"
+# 100.times do
+	browser.text_field(:placeholder => 'Search').set "Sahil Gupta"
 	sleep 2
 	browser.send_keys :enter
 	sleep 2
 	element = browser.div(:class => "_1mf _1mj").span
-	script = "return arguments[0].innerHTML = 'Your message'"
+	message = 'your messsage'
+	message = "arguments[0].innerHTML = '#{message}'"
+	script = "return #{message}"
 	browser.execute_script(script, element)
 	browser.send_keys [:control, "a"]
 	browser.send_keys [:control, "x"]
@@ -48,4 +52,4 @@ names.each do |name|
 	browser.send_keys :enter
 	browser.div(:class => 'mls titlebarButtonWrapper rfloat _ohf').a(:class => "_3olu _3olv close button").click	
 end
-s = gets
+s = gets+
