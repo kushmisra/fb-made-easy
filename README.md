@@ -1,8 +1,8 @@
 # fb-made-easy
 
 before starting to use this you should get teh following gems by running the commands
-sudo gem install watir
-sudo gem install highline
+<---sudo gem install watir--->
+<---sudo gem install highline--->
 
 it's important to run this script :).
 	

@@ -20,7 +20,7 @@ browser.div(:id => 'events_birthday_view').div(:class => '_4-u2 _59ha _2fv9 _4-u
    sleep 8
    browser.send_keys :enter
    sleep 8
-   names <<li.div(:class => 'clearfix _3ng1').div(:class => '_3ng2 lfloat _ohe').a.text
+   names << li.div(:class => 'clearfix _3ng1').div(:class => '_3ng2 lfloat _ohe').a.text
 end	
 
 if names.size > 0
@@ -31,7 +31,6 @@ end
 
 browser.goto ('https://www.facebook.com')
 names.each do |name| 
-# 100.times do
 	browser.text_field(:placeholder => 'Search').set "#{name}"
 	sleep 2
 	browser.send_keys :enter
