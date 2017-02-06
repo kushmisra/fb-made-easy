@@ -1,9 +1,12 @@
 # fb-made-easy
 
-before start 
-	sudo gem install watir
-	sudo gem install highline
-	imp.
+before starting to use this you should get teh following gems by running the commands
+sudo gem install watir
+sudo gem install highline
+
+it's important to run this script :).
 	
 
-this project is all about automation in using watir and nokogiri.
+This project is all automation in facebook birthday wishing using watir and nokogiri and basic ruby.
+
+
