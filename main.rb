@@ -12,20 +12,12 @@ password = ask("Enter password: ") { |q| q.echo = false }
 browser.text_field(:id => 'email').set email
 browser.text_field(:id => 'pass').set password
 browser.form(:id => 'login_form').submit
-browser.goto 'https://www.facebook.com/notifications'
-sleep 5
+sleep 10
 names = []
-browser.divs(:class => '_4l_v').each do |div|
-	temp_text = div.span.text
-	if temp_text.include? "was"
-		next
-	end
-	if temp_text.include? "birthday"
-		temp_text = temp_text.split(' ')
-		temp_text = "#{temp_text[0]} #{temp_text[1]}"
-		names << temp_text 
-	end
-end
+browser.goto 'https://web.facebook.com/events/birthdays'
+browser.div(:id => 'events_birthday_view').div(:class => '_4-u2 _59ha _2fv9 _4-u8').ul(:class => '_3ng0').lis.each do |li|
+   names <<li.div(:class => 'clearfix _3ng1').div(:class => '_3ng2 lfloat _ohe').a.text
+end	
 
 if names.size > 0
 	names.each do |name|
@@ -36,12 +28,12 @@ end
 browser.goto ('https://www.facebook.com')
 names.each do |name| 
 # 100.times do
-	browser.text_field(:placeholder => 'Search').set "Sahil Gupta"
+	browser.text_field(:placeholder => 'Search').set "#{name}"
 	sleep 2
 	browser.send_keys :enter
 	sleep 2
 	element = browser.div(:class => "_1mf _1mj").span
-	message = 'your messsage'
+	message = ' na aisa bhi nahi hai...:) :P ..its because of the fests going on :)'
 	message = "arguments[0].innerHTML = '#{message}'"
 	script = "return #{message}"
 	browser.execute_script(script, element)
@@ -52,4 +44,4 @@ names.each do |name|
 	browser.send_keys :enter
 	browser.div(:class => 'mls titlebarButtonWrapper rfloat _ohf').a(:class => "_3olu _3olv close button").click	
 end
-s = gets+
+s = gets
