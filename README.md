@@ -1,12 +1,12 @@
 # fb-made-easy
 
-before starting to use this you should get teh following gems by running the commands
-<---sudo gem install watir--->
-<---sudo gem install highline--->
+This is a Ruby Script for automating Facebook Birthday Wishing using the gems "Watir", "Nokogiri" and "Highline".
 
-it's important to run this script :).
-	
+The commands required to install the required gems are as follows :-
 
-This project is all automation in facebook birthday wishing using watir and nokogiri and basic ruby.
+```sudo gem install watir``` <br>
+```sudo gem install highline``` <br>
+```sudo gem install nokogiri``` <br>
 
+All these gems are important to run this script :).
 
